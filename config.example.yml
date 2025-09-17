@@ -1,0 +1,37 @@
+# Example configuration for smart-file-automation
+# Copy this to config.yml and edit to taste.
+
+# Destination folders and their extensions (case-insensitive)
+mappings:
+  Documents:
+    - .txt
+    - .pdf
+    - .docx
+    - .doc
+    - .pptx
+    - .csv
+  Images:
+    - .png
+    - .jpg
+    - .jpeg
+    - .gif
+    - .bmp
+  Videos:
+    - .mp4
+    - .avi
+    - .mkv
+  Archives:
+    - .zip
+    - .tar
+    - .gz
+  Others: []  # catch-all
+
+# Report location (relative or absolute)
+report_path: "sorting_report.csv"
+
+# Safe behavior options
+dry_run: false        # if true, do everything except actually move files
+rename_on_conflict: true  # if true, append _1,_2... if filename exists
+exclude_patterns:    # list of glob patterns to ignore
+  - ".git/*"
+  - "venv/*"

@@ -1,11 +1,10 @@
+# simple csv report writer
 import csv
-import os
 
-def generate_report(sorted_files, folder_path):
-    report_file = os.path.join(folder_path, "sorting_report.csv")
-    with open(report_file, "w", newline="") as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(["File Name", "Moved To"])
-        for filename, folder in sorted_files:
-            writer.writerow([filename, folder])
-    print(f"Report generated: {report_file}")
+def write_csv(path, rows, header=None):
+    header = header or []
+    with open(path, "w", newline="", encoding="utf-8") as fh:
+        writer = csv.writer(fh)
+        if header:
+            writer.writerow(header)
+        writer.writerows(rows)
